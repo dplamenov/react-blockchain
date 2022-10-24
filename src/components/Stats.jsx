@@ -9,24 +9,13 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { useEtherBalance, useNetworkName } from "../hooks";
+import { useEtherBalance, useNetworkName, useERC20Balance } from "../hooks";
 
 function Stats() {
   const data = useSelector((state) => state.web3);
   const balance = useEtherBalance(data.provider, data.account);
   const network = useNetworkName(data.provider);
-  const [nexoTokenBalance, setNexoTokenBalance] = useState(0);
-
-  useEffect(() => {
-    if (!data.provider) {
-      return;
-    }
-    const nexoContract = data.contracts.nexo_token;
-    nexoContract.balanceOf(data.account).then((balance) => {
-      const balanceInEth = ethers.utils.formatEther(balance);
-      setNexoTokenBalance(balanceInEth);
-    });
-  }, [data]);
+  const nexoTokenBalance = useERC20Balance(data.contracts.nexo_token, data.account);
 
   return (
     <>
