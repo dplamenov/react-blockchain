@@ -11,10 +11,15 @@ export const web3Slice = createSlice({
       state.signer = action.payload.signer;
       state.account = action.payload.account;
     },
+    disconnect: (state) => {
+      state.provider = undefined;
+      state.signer = undefined;
+      state.account = undefined;
+    },
     loadContracts: (state, action) => {
       state.contracts = action.payload.contracts;
     },
   },
 });
 
-export const { connect, loadContracts } = web3Slice.actions;
+export const { connect, disconnect, loadContracts } = web3Slice.actions;
