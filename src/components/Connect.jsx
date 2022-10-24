@@ -29,6 +29,8 @@ function Connect() {
   useEffect(() => {
     connectFn();
   }, []);
+
+  return <></>;
 }
 
 export default Connect;
