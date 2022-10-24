@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { ethers } from "ethers";
 import {
+  Box,
   Table,
   TableBody,
   TableCell,
@@ -18,7 +17,7 @@ function Stats() {
   const nexoTokenBalance = useERC20Balance(data.contracts.nexo_token, data.account);
 
   return (
-    <>
+    <Box sx={{'margin-top': '50px'}}>
       <Typography variant="h2">Stats:</Typography>
       <Table>
         <TableHead>
@@ -38,7 +37,7 @@ function Stats() {
           </TableRow>
         </TableBody>
       </Table>
-    </>
+    </Box>
   );
 }
 
