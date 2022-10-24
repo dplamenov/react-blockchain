@@ -14,10 +14,13 @@ function Stats() {
   const data = useSelector((state) => state.web3);
   const balance = useEtherBalance(data.provider, data.account);
   const network = useNetworkName(data.provider);
-  const nexoTokenBalance = useERC20Balance(data.contracts.nexo_token, data.account);
+  const nexoTokenBalance = useERC20Balance(
+    data.contracts.nexo_token,
+    data.account
+  );
 
   return (
-    <Box sx={{'margin-top': '50px'}}>
+    <Box sx={{ marginTop: "50px" }}>
       <Typography variant="h2">Stats:</Typography>
       <Table>
         <TableHead>
