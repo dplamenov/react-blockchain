@@ -29,6 +29,7 @@ function Stats() {
             <TableCell>ETH Balance:</TableCell>
             <TableCell>Network name:</TableCell>
             <TableCell>NEXO Token balance:</TableCell>
+            <TableCell>WETH price:</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -37,6 +38,7 @@ function Stats() {
             <TableCell>{balance}</TableCell>
             <TableCell>{network}</TableCell>
             <TableCell>{nexoTokenBalance}</TableCell>
+            <TableCell>XXX USDC</TableCell>
           </TableRow>
         </TableBody>
       </Table>
