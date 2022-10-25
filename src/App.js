@@ -9,7 +9,7 @@ function App() {
     <Provider store={store}>
       <Connect />
       <Header />
-      <Box sx={{ maxWidth: 'xl', margin: '0 auto' }}>
+      <Box sx={{ maxWidth: "xl", margin: "0 auto" }}>
         <HomePage />
       </Box>
       <Footer />
