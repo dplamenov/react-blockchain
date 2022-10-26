@@ -6,9 +6,7 @@ export default async ({ dispatch }) => {
   const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
   const accounts = await provider.send("eth_requestAccounts", []);
   const signer = provider.getSigner();
-  dispatch(
-    connect({ provider, signer, account: accounts[0] })
-  );
+  dispatch(connect({ provider, signer, account: accounts[0] }));
   dispatch(
     loadContracts({
       contracts: {
@@ -28,7 +26,7 @@ export default async ({ dispatch }) => {
 
   const chainId = (await provider.getNetwork()).chainId;
 
-  if(chainId !== 1) {
+  if (chainId !== 1) {
     window.ethereum.request({
       method: "wallet_switchEthereumChain",
       params: [{ chainId: "0x1" }],
