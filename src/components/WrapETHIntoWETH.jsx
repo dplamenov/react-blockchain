@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Box, Typography, TextField, Button } from "@mui/material";
+import { NotificationManager as notify } from "react-notifications";
 
 function WrapETHIntoWETH() {
   const [amountToWrap, setAmountToWrap] = useState(0);
@@ -9,8 +10,12 @@ function WrapETHIntoWETH() {
     contracts: { weth },
   } = useSelector((state) => state.web3);
 
-  const wrapHandler = () => {
-    weth.deposit({ value: amountToWrap });
+  const wrapHandler = async () => {
+    try {
+      await weth.deposit({ value: amountToWrap });
+    } catch (e) {
+      notify.error(e.reason);
+    }
   };
 
   return (
